@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<PreferenceCategory
+    android:title="@string/general">
+    <EditTextPreference
+        android:defaultValue= "@string/default_location"
+        android:inputType="text"
+        android:key="@string/location_1"
+        android:singleLine="true"
+        android:title="@string/location"/>
+
+    <ListPreference
+        android:defaultValue="@string/imperial"
+        android:entries="@array/pref_units"
+        android:entryValues="@array/pref_values"
+        android:key="@string/units"
+        android:title="@string/temp_units"/>
+
+    <ListPreference
+        android:defaultValue="@string/never"
+        android:entries="@array/pref_update_freq"
+        android:entryValues="@array/pref_freq_values"
+        android:key="@string/updates"
+        android:title="@string/update"/>
+    <Preference android:title="@string/pref_system_sync">
+        <intent android:action="android.settings.SYNC_SETTINGS"/>
+    </Preference>
+
+    <android.support.v7.preference.SwitchPreferenceCompat
+        android:defaultValue="@bools/switch_default"
+        android:key="@string/notify"
+        android:summaryOff="@string/weather_summary"
+        android:summaryOn="@string/weather_summary"
+        android:title="@string/weather_notifications"/>
+</PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/about_a">
+        <Preference
+            android:selectable="false"
+            android:summary="@string/about"/>
+        <Preference
+            android:summary="@string/version"
+            android:title="@string/tittle_version"/>
+        <Preference
+            android:title="@string/powered"
+            android:summary="@string/darksky">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="@string/darksky_link"/>
+        </Preference>
+    </PreferenceCategory>
+
+</PreferenceScreen>

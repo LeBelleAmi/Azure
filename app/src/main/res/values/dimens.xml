@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--card dimension-->
+
+    <dimen name="card_radius">10dp</dimen>
+    <dimen name="card_elevation">5dp</dimen>
+    <dimen name="card_radius2">15dp</dimen>
+    <dimen name="card_elevation2">10dp</dimen>
+    <dimen name="card_margin">6dp</dimen>
+</resources>

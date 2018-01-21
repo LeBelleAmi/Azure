@@ -1,0 +1,134 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Azure</string>
+    <string name="menu_item1">Update</string>
+    <string name="menu_item2">Cities</string>
+    <string name="menu_item3">Settings</string>
+    <string name="menu_item4">Calender</string>
+    <string name="empty_state">No weather data found!</string>
+    <string name="number_sample">12</string>
+    <string name="repos">12</string>
+    <string name="weather_code">12</string>
+    <string name="temperature">App Temp</string>
+    <string name="dew_point">Dew Point</string>
+    <string name="humidity">Humidity</string>
+    <string name="Pressure">Pressure</string>
+    <string name="uv_index">UV Index</string>
+    <string name="cloud_cover">Cloud Cover</string>
+    <string name="precip_type">Precip Type</string>
+    <string name="degree_unicode">&#176;</string>
+    <string name="wind_speed">Wind Speed</string>
+    <string name="today">Today</string>
+    <string name="tommorrow">Tomorrow</string>
+    <string name="format_full_friendly_date"><xliff:g id="month">%1$s</xliff:g>, <xliff:g id="day">%2$s</xliff:g></string>
+    <string name="format_temp"><xliff:g id="temp">%1.0f</xliff:g>&#176;</string>
+    <string name="menu_item5">Share</string>
+    <string name="settings_name">Settings</string>
+    <string name="menu_item6">Map Location</string>
+    <string name="default_location">Warri</string>
+    <string name="location">Location</string>
+    <string name="location_1">location</string>
+    <string name="metric">Metric</string>
+    <string name="celsius">Celsius</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="units">units</string>
+    <string name="temp_units">Temperature Units</string>
+    <string name="imperial">Imperial</string>
+    <string name="never">Never</string>
+    <string name="updates">update</string>
+    <string name="update">Update Frequency</string>
+    <string name="two">Every Two Hours</string>
+    <string name="six">Every Six Hours</string>
+    <string name="twelve">Every Twelve Hours</string>
+    <string name="day">Every Day</string>
+    <string name="never_fig">-1</string>
+    <string name="two_fig">120</string>
+    <string name="six_fig">360</string>
+    <string name="twelve_fig">720</string>
+    <string name="day_fig">1440</string>
+    <string name="wind_direction">Wind Direction</string>
+    <string name="Pressure_sample">1016mb</string>
+    <string name="Precip_sample">10%</string>
+    <string name="wind_speed_sample">25 mph</string>
+    <string name="general">General</string>
+    <string name="weather_notifications">Weather Notifications</string>
+    <string name="weather_summary">Display weather of my location</string>
+    <string name="notify">notify_key</string>
+    <string name="about"><![CDATA[This is a weather update app designed for research purposes for the Andela, Google, & Udacity Android Community Learning Intermediate Program.]]></string>
+    <string name="about_a">About</string>
+    <string name="version">App Version 1.0</string>
+    <string name="tittle_version">Version</string>
+    <string name="powered">Powered By</string>
+    <string name="darksky_link">https://darksky.net/poweredby/</string>
+    <string name="darksky">DarkSky</string>
+    <string name="switch_default">true</string>
+    <string name="api_key">Your API Key</string>
+
+    <!-- Temperature format -->
+    <string name="format_temperature">
+        <xliff:g id="temp">%1.0f</xliff:g>\u00B0
+    </string>
+
+    <string name="format_wind_kmh">
+        <xliff:g id="speed">%1$1.0f</xliff:g> km/h
+        <xliff:g id="direction">%2$s</xliff:g>
+    </string>
+
+    <!-- Wind in mph -->
+    <string name="format_wind_mph">
+        <xliff:g id="speed">%1$1.0f</xliff:g> mph
+        <xliff:g id="direction">%2$s</xliff:g>
+    </string>
+
+    <string name="format_wind_kmh1">
+        <xliff:g id="speed">%1$1.0f</xliff:g> km/h
+    </string>
+
+    <!-- Wind in mph -->
+    <string name="format_wind_mph1">
+        <xliff:g id="speed">%1$1.0f</xliff:g> mph
+    </string>
+
+
+    <!-- pressure in mb -->
+    <string name="format_pressure_mb">
+        <xliff:g id="mb">%1$1.0f</xliff:g> mb
+    </string>
+
+    <!-- pressure in hpa -->
+    <string name="format_pressure_hpa">
+        <xliff:g id="hpa">%1$1.0f</xliff:g> hpa
+    </string>
+
+
+    <!-- pressure in hpa -->
+    <string name="format_percent">
+        <xliff:g id="percent">%d%%</xliff:g>
+    </string>
+
+
+    <!--weather icons-->
+    <string name="weather_sunny">&#xf00d;</string>
+    <string name="weather_clear_night">&#xf02e;</string>
+    <string name="weather_foggy">&#xf014;</string>
+    <string name="weather_cloudy">&#xf013;</string>
+    <string name="weather_rainy">&#xf019;</string>
+    <string name="weather_snowy">&#xf01b;</string>
+    <string name="weather_thunder">&#xf01e;</string>
+    <string name="weather_drizzle">&#xf01c;</string>
+    <string name="weather_sleet">&#xf0b5;</string>
+    <string name="weather_windy">&#xf021;</string>
+    <string name="weather_cloudy_day">&#xf002;</string>
+    <string name="weather_barometer">&#xf079;</string>
+    <string name="weather_speed">&#xf0b1;</string>
+    <string name="weather_thermometer">&#xf055;</string>
+    <string name="weather_humidity">&#xf07a;</string>
+    <string name="weather_umbrella">&#xf084;</string>
+    <string name="weather_cloudy_night">&#xf031;</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="choose">Please choose a Location</string>
+    <string name="ok">OK</string>
+    <string name="pref_system_sync">System Sync Settings</string>
+    <string name="latitude">latitude</string>
+    <string name="longitude">longitude</string>
+
+</resources>

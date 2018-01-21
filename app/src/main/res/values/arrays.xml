@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="pref_units">
+        <item>@string/imperial</item>
+        <item>@string/metric</item>
+    </array>
+    <array name="pref_values">
+        <item>@string/fahrenheit</item>
+        <item>@string/celsius</item>
+    </array>
+    <string-array name="pref_update_freq">
+        <item>@string/never</item>
+        <item>@string/two</item>
+        <item>@string/six</item>
+        <item>@string/twelve</item>
+        <item>@string/day</item>
+    </string-array>
+    <string-array name="pref_freq_values">
+        <item>@string/never_fig</item>
+        <item>@string/two_fig</item>
+        <item>@string/six_fig</item>
+        <item>@string/twelve_fig</item>
+        <item>@string/day_fig</item>
+    </string-array>
+</resources>

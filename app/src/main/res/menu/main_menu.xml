@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/calender"
+        android:enabled="true"
+        android:icon="@drawable/ic_calender"
+        android:title="@string/menu_item4"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/share"
+        android:enabled="true"
+        android:title="@string/menu_item5"
+        app:showAsAction="never" />
+    <item android:id="@+id/map"
+        android:enabled="true"
+        android:title="@string/menu_item6"
+        app:showAsAction="never" />
+</menu>
