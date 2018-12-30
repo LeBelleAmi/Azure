@@ -54,7 +54,8 @@ public class DetailsActivity extends AppCompatActivity {
         String windDirection = data.getString("windDirection");
 
         //format date
-        long dateTime = data.getLong(date);
+        long dateTime = Long.parseLong(date);
+        //long dateTime = data.getLong(date);
         Date dateObject = new Date(dateTime * 1000L);
         String formattedDate = Utils.formatDate(dateObject);
 
