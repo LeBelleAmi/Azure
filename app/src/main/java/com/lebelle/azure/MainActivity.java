@@ -66,6 +66,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     int year_x, month_x, day_x;
     static final int DIALOG_ID = 0;
 
+    //double currentLatitude = location.getLatitude();
+//double currentLongitude = location.getLongitude();
     double latitude;
     double longitude;
 
