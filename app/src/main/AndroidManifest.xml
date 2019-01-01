@@ -40,7 +40,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".CitiesActivity"></activity>
+        <activity android:name=".CitiesActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.AppTheme3">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
     </application>
 
 </manifest>
