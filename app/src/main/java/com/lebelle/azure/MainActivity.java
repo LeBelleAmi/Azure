@@ -3,13 +3,16 @@ package com.lebelle.azure;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
+import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -53,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     /*recycler view*/
     RecyclerView recyclerView;
     ProgressDialog pd;
-    TextView tempView, timeView, dateView, locationView, summaryView, pressureView, windView, precipView, humidityView, appTempView, iconView;
+    TextView tempView, timeView, dateView, locationView, locationView2, summaryView, pressureView, windView, precipView, humidityView, appTempView, iconView;
     TextView icon1, icon2, icon3, icon4, icon5;
     List<Datum__> dailyList;
     /*network state boolean*/
@@ -66,10 +69,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     int year_x, month_x, day_x;
     static final int DIALOG_ID = 0;
 
+    //default coords
     //double currentLatitude = location.getLatitude();
 //double currentLongitude = location.getLongitude();
-    double latitude;
-    double longitude;
+    final double latitude = 5.5544;
+    final double longitude = 5.7932;
 
     private static boolean PREFERENCES_HAS_CHANGED = false;
 
@@ -86,10 +90,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         month_x = calendar.get(Calendar.MONTH);
         day_x = calendar.get(Calendar.DAY_OF_MONTH);
 
-        //default coords
-         latitude = 5.5544;
-         longitude = 5.7932;
-
         //textviews declaration
         iconView = (TextView) findViewById(R.id.weather_image);
         tempView = (TextView) findViewById(R.id.weather_temp);
@@ -99,10 +99,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         pressureView = (TextView) findViewById(R.id.pressure_number);
         windView = (TextView) findViewById(R.id.wind_speed_number);
         precipView = (TextView) findViewById(R.id.precip_type_number);
-        locationView = (TextView) findViewById(R.id.location);
         humidityView = (TextView) findViewById(R.id.humidity_number);
         appTempView = (TextView) findViewById(R.id.temp_number);
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.main_container);
+        locationView2 = findViewById(R.id.location1);
 
         //weathericons
         icon1 = (TextView) findViewById(R.id.icon1);
@@ -142,7 +142,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                                 loadWeatherDATA();
                                 break;
                             case R.id.cities:
-                                Toast.makeText(MainActivity.this, "Cities", Toast.LENGTH_SHORT).show();
+                                Intent intentCity = new Intent(MainActivity.this, CitiesActivity.class);
+                                MainActivity.this.startActivity(intentCity);
                                 break;
                             case R.id.settings:
                                 Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
@@ -164,12 +165,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             pd.setMessage("Loading Weather Data...");
             pd.setCancelable(false);
             pd.show();
-
-            WeatherLocation location = new WeatherLocation(getApplicationContext());
-
-            if (location.getLocation() != null){
-
-                //latitude, longitude = location.getLatitudeandLongitude();
 
             Service apiService =
                     Client.getClient().create(Service.class);
@@ -196,7 +191,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 @Override
                 public void onFailure(Call<WeatherData> call, Throwable t) {
                     Log.d("Error", t.getMessage());
-                    Toast.makeText(MainActivity.this, "Error Fetching Data!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "Error Fetching Data!", Toast.LENGTH_SHORT).show();
                     //emptyState.setVisibility(View.VISIBLE);
                     pd.hide();
                     // showing snack bar with response failure option
@@ -211,12 +206,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     });
                     snackbar.setActionTextColor(Color.YELLOW);
                     snackbar.show();
-
                 }
             });
-            }else {
-                com.lebelle.azure.Dialog.addLocationDialog(getApplicationContext());
-            }
 
         } catch (Exception e) {
             Log.d("Error", e.getMessage());
@@ -226,7 +217,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
 
     private void connected(){
-        connected = checkInternetConnection();
+        connected = isNetworkConnected(getApplicationContext());
         if (!connected){
             // showing snack bar with network option
             Snackbar snackbar = Snackbar
@@ -245,14 +236,35 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
-    /*
-    * check if the app has network connection*/
-    public boolean checkInternetConnection(){
-        ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext()
-                .getSystemService(CONNECTIVITY_SERVICE);
-        NetworkInfo connectedNetwork = connectivityManager.getActiveNetworkInfo();
-        boolean isActive = (connectedNetwork != null && connectedNetwork.isConnectedOrConnecting());
-        return isActive;
+
+    public static boolean isNetworkConnected(Context context) {
+        boolean result = false;
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (cm != null) {
+                NetworkCapabilities capabilities = cm.getNetworkCapabilities(cm.getActiveNetwork());
+                if (capabilities != null) {
+                    if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                        result = true;
+                    } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                        result = true;
+                    }
+                }
+            }
+        } else {
+            if (cm != null) {
+                NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+                if (activeNetwork != null) {
+                    // connected to the internet
+                    if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
+                        result = true;
+                    } else if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE) {
+                        result = true;
+                    }
+                }
+            }
+        }
+        return result;
     }
 
 
@@ -295,24 +307,21 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         long humid = Math.round(currentData.getHumidity());
         long wind = Math.round(currentData.getWindSpeed());
 
-        precipView.setText(getString(R.string.format_percent, precip));
+        //precipView.setText(String.format(R.string.format_percent, precip));
+        precipView.setText(String.valueOf(precip) + "%");
         pressureView.setText(Utils.getFormattedPressure(getApplicationContext(), pressuer));
-        humidityView.setText(getString(R.string.format_percent, humid));
+        humidityView.setText(String.valueOf(humid) + "%");
+        //humidityView.setText(String.format(getString(R.string.format_percent), humid));
+        //humidityView.setText(String.format("%.0f%%", humid * 100));
         windView.setText(Utils.getFormattedWind(getApplicationContext(), wind));
 
         summaryView.setText(currentData.getSummary());
-        locationView.setText(weatherData.getTimezone().substring(7));
+        //locationView.setText(weatherData.getTimezone().substring(7));
+        locationView2.setText(weatherData.getTimezone().substring(7));
         iconView.setText(Utils.getIconId(currentData.getIcon(),
                 weatherData.getDaily().getData().get(0).getSunriseTime(),
                 weatherData.getDaily().getData().get(0).getSunsetTime()));
-        /*Glide.with(this)
-                .load(Utils.getIconId(currentData.getIcon()))
-                .asBitmap()
-                .fitCenter()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .placeholder(R.drawable.weather_sunny)
-                .into(iconView);
-*/
+
     }
 
     //onCreate boolean for calender icon on appbar
@@ -379,7 +388,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
 
     private void openMap() {
-        String addressString = AppPrefs.getPreferredWeatherLocationFromSharedPrefs("", this);
+        String addressString = ("Warri");
         Uri.Builder builder = new Uri.Builder();
         builder.scheme("geo")
                 .path("0,0")

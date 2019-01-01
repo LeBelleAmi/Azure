@@ -130,5 +130,9 @@
     <string name="pref_system_sync">System Sync Settings</string>
     <string name="latitude">latitude</string>
     <string name="longitude">longitude</string>
+    <string name="weeklyForecast">Weekly Forecast</string>
+    <string name="weather_indices_for_the_day">Weather indices for the day</string>
+    <string name="location_unicode"></string>
+    <string name="cities">Cities</string>
 
 </resources>

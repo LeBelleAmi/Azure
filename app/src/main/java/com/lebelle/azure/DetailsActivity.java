@@ -55,7 +55,6 @@ public class DetailsActivity extends AppCompatActivity {
 
         //format date
         long dateTime = Long.parseLong(date);
-        //long dateTime = data.getLong(date);
         Date dateObject = new Date(dateTime * 1000L);
         String formattedDate = Utils.formatDate(dateObject);
 
@@ -74,24 +73,17 @@ public class DetailsActivity extends AppCompatActivity {
         Toolbar toolbar1 = (Toolbar) findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar1);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(formattedDate);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        //set up details data
-       /* Glide.with(this)
-                .load(Utils.getIconId(icon))
-                .asBitmap()
-                .fitCenter()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .placeholder(R.drawable.weather_sunny)
-                .into(iconImage);
-*/
         summary_text.setText(summary);
         temp1.setText(Utils.formatTemperature(getApplicationContext(), highTemp));
         temp2.setText(Utils.formatTemperature(getApplicationContext(), lowTemp));
-        humidity_text.setText(getString(R.string.format_percent, humid));
+        //humidity_text.setText(getString(R.string.format_percent, humid));
+        humidity_text.setText(String.valueOf(humid) + "%");
         pressure_text.setText(Utils.getFormattedPressure(getApplicationContext(), pressre));
         windSpeed_text.setText(Utils.getFormattedWind(getApplicationContext(), windSd));
-        precip_text.setText(getString(R.string.format_percent, precip));
+        precip_text.setText(String.valueOf(precip) + "%");
+        //precip_text.setText(getString(R.string.format_percent, precip));
         windDirection_text.setText(Utils.getFormattedWind(getApplicationContext(), windSd, windDir));
         dateView.setText(formattedDate);
         iconImage.setText(Utils.getIconId(icon, sunrisee, sunsett));
@@ -127,7 +119,7 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void openMap() {
-        String addressString = AppPrefs.getPreferredWeatherLocationFromSharedPrefs("",this);
+        String addressString = ("Warri");
         Uri.Builder builder = new Uri.Builder();
         builder.scheme("geo")
                 .path("0,0")

@@ -16,13 +16,26 @@
         android:background="#000"
         app:elevation="8dp">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar1"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:minHeight="?attr/actionBarSize"
-        app:layout_collapseMode="pin"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar1"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+
+
+            <TextView
+                android:id="@+id/date_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                tools:text="Today, May 18 2017" />
+
+        </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
     <RelativeLayout
@@ -85,19 +98,32 @@
             android:textSize="25sp"
             tools:text="32&#176;C" />
 
-            <TextView
-                android:id="@+id/pressure"
-                android:layout_below="@+id/weather_text2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="@string/Pressure"
-                android:drawableLeft="@drawable/weatherglass_barometer"
-                android:drawableStart="@drawable/weatherglass_barometer"
-                android:drawablePadding="5dp"
-                android:layout_margin="8dp"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/weather_headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_below="@+id/weather_text2"
+            android:layout_margin="5dp"
+            android:gravity="start"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@android:color/black"
+            android:text="@string/weather_indices_for_the_day" />
+
+        <TextView
+            android:id="@+id/pressure"
+            android:layout_below="@+id/weather_headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/Pressure"
+            android:drawableLeft="@drawable/weatherglass_barometer"
+            android:drawableStart="@drawable/weatherglass_barometer"
+            android:drawablePadding="5dp"
+            android:layout_margin="8dp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/pressure_text"
@@ -113,18 +139,18 @@
 
 
         <TextView
-                android:id="@+id/precipitation"
-                android:layout_below="@+id/pressure"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            android:id="@+id/precipitation"
+            android:layout_below="@+id/pressure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
-                android:text="@string/precip_type"
-                android:drawableLeft="@drawable/precip_icon"
-                android:drawableStart="@drawable/precip_icon"
-                android:drawablePadding="5dp"
-                android:layout_margin="8dp"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
+            android:text="@string/precip_type"
+            android:drawableLeft="@drawable/precip_icon"
+            android:drawableStart="@drawable/precip_icon"
+            android:drawablePadding="5dp"
+            android:layout_margin="8dp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/precipitation_text"
@@ -140,18 +166,18 @@
 
 
         <TextView
-                android:id="@+id/humidity"
-                android:layout_below="@+id/precipitation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="@string/humidity"
-                android:drawableLeft="@drawable/drop"
-                android:drawableStart="@drawable/drop"
-                android:drawablePadding="5dp"
-                android:layout_margin="8dp"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
+            android:id="@+id/humidity"
+            android:layout_below="@+id/precipitation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/humidity"
+            android:drawableLeft="@drawable/drop"
+            android:drawableStart="@drawable/drop"
+            android:drawablePadding="5dp"
+            android:layout_margin="8dp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/humidity_text"
@@ -167,18 +193,18 @@
 
 
         <TextView
-                android:id="@+id/wind_speed"
-                android:layout_below="@+id/humidity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="@string/wind_speed"
-                android:drawableLeft="@drawable/wind_rose"
-                android:drawableStart="@drawable/wind_rose"
-                android:drawablePadding="5dp"
-                android:layout_margin="8dp"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
+            android:id="@+id/wind_speed"
+            android:layout_below="@+id/humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/wind_speed"
+            android:drawableLeft="@drawable/wind_rose"
+            android:drawableStart="@drawable/wind_rose"
+            android:drawablePadding="5dp"
+            android:layout_margin="8dp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/wind_speed_text"
@@ -193,18 +219,18 @@
             android:textSize="18sp" />
 
         <TextView
-                android:id="@+id/wind_direction"
-                android:layout_below="@+id/wind_speed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="@string/wind_direction"
-                android:drawableLeft="@drawable/wind"
-                android:drawableStart="@drawable/wind"
-                android:drawablePadding="5dp"
-                android:layout_margin="8dp"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
+            android:id="@+id/wind_direction"
+            android:layout_below="@+id/wind_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/wind_direction"
+            android:drawableLeft="@drawable/wind"
+            android:drawableStart="@drawable/wind"
+            android:drawablePadding="5dp"
+            android:layout_margin="8dp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/wind_direction_text"
@@ -217,18 +243,7 @@
             tools:text="@string/wind_speed_sample"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
-        <TextView
-            android:id="@+id/date_view"
-            android:layout_below="@+id/wind_direction_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:text="@string/wind_direction"
-            android:drawablePadding="5dp"
-            android:layout_margin="8dp"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:visibility="gone"/>
+
 
     </RelativeLayout>
 

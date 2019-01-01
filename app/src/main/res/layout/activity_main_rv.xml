@@ -13,6 +13,10 @@
         android:scrollbarSize="3dp"
         android:scrollbarStyle="insideOverlay"
         android:scrollbars="horizontal"
-        tools:listitem="@layout/list_item" />
+        tools:listitem="@layout/list_item"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="56dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"/>
 
 </RelativeLayout>

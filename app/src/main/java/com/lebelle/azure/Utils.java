@@ -135,21 +135,21 @@ public class Utils {
          */
         String direction = "Unknown";
         if (degrees >= 337.5 || degrees < 22.5) {
-            direction = "N";
+            direction = "North";
         } else if (degrees >= 22.5 && degrees < 67.5) {
-            direction = "NE";
+            direction = "North East";
         } else if (degrees >= 67.5 && degrees < 112.5) {
-            direction = "E";
+            direction = "East";
         } else if (degrees >= 112.5 && degrees < 157.5) {
-            direction = "SE";
+            direction = "South East";
         } else if (degrees >= 157.5 && degrees < 202.5) {
-            direction = "S";
+            direction = "South";
         } else if (degrees >= 202.5 && degrees < 247.5) {
-            direction = "SW";
+            direction = "South West";
         } else if (degrees >= 247.5 && degrees < 292.5) {
-            direction = "W";
+            direction = "West";
         } else if (degrees >= 292.5 && degrees < 337.5) {
-            direction = "NW";
+            direction = "North West";
         }
 
         return String.format(context.getString(windFormat), windSpeed, direction);

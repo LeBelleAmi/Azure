@@ -55,7 +55,7 @@ public class Provider extends ContentProvider {
     /**
          * Perform a bulk insert of weather for the given URI. Use the given projection, selection, selection arguments, and sort order.
          */
-        @Override
+        /*@Override
         public int bulkInsert (@NonNull Uri uri, @NonNull ContentValues[] values ){
            final SQLiteDatabase database = mDbHelper.getWritableDatabase();
             final int match = sUriMatcher.match(uri);
@@ -89,7 +89,7 @@ public class Provider extends ContentProvider {
                     }
 
             }
-
+*/
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection,
