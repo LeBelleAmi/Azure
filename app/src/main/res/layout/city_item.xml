@@ -39,7 +39,7 @@
                 android:maxLines="2"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
-                tools:text="Long placeholder" />
+                tools:text="New York" />
 
 
             <TextView
@@ -52,7 +52,7 @@
                 android:textAllCaps="true"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="12sp"
-                tools:text="30km S of" />
+                tools:text="Brooklyn" />
 
         </LinearLayout>
 

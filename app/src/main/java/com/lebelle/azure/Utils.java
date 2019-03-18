@@ -16,17 +16,22 @@ public class Utils {
 
     public static int getIconId(String icon, double sunrise, double sunset){
         int iconId = R.string.weather_sunny;
+        //int backgroundId = R.drawable.kites_day;
         if (icon.equals("clear")){
             long currentTime = new Date().getTime();
             if (currentTime>=sunrise && currentTime<sunset){
                 iconId = R.string.weather_sunny;
+                //backgroundId = R.drawable.kites_day;
             }else {
                 iconId = R.string.weather_clear_night;
+                //backgroundId = R.drawable.kites_night;
             }
         }else if (icon.equals("clear-day")){
             iconId = R.string.weather_sunny;
+            //backgroundId = R.drawable.kites_day;
         } else if (icon.equals("clear-night")){
             iconId = R.string.weather_clear_night;
+            //backgroundId = R.drawable.kites_night;
         }
         else if (icon.equals("rain")){
             iconId = R.string.weather_rainy;
@@ -71,8 +76,8 @@ public class Utils {
     }
 
     /**
-     * Temperature data is stored in Celsius by our app. Depending on the user's preference,
-     * the app may need to display the temperature in Fahrenheit. This method will perform that
+     * Temperature data is stored in Fahrenheit by our app. Depending on the user's preference,
+     * the app may need to display the temperature in Celsius. This method will perform that
      * temperature conversion if necessary. It will also format the temperature so that no
      * decimal points show. Temperatures will be formatted to the following form: "21°"
      *

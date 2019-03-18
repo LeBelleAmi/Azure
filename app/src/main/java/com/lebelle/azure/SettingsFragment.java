@@ -48,6 +48,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         }
     }
 
+
+
     @Override
     public void onStop(){
         super.onStop();
@@ -64,13 +66,17 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         Preference preference = findPreference(key);
         if (null != preference){
-            if (preference instanceof ListPreference){
-                setPreferenceSummary(preference, sharedPreferences.getString(key, ""));
-            }else if (preference instanceof EditTextPreference){
-                setPreferenceSummary(preference, sharedPreferences.getString(key, ""));
-            }else if(preference instanceof SwitchPreferenceCompat){
-                setPreferenceSummary(preference, sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.switch_default)));
-            }
+
+            if (!(preference instanceof CheckBoxPreference)){
+                String value = sharedPreferences.getString(preference.getKey(),"");
+                setPreferenceSummary(preference, value);
+            } }else if (preference instanceof EditTextPreference){
+            setPreferenceSummary(preference, sharedPreferences.getString(key, ""));
+        }else if(preference instanceof SwitchPreferenceCompat){
+            setPreferenceSummary(preference, sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.switch_default)));
+        }else if (preference instanceof ListPreference){
+            setPreferenceSummary(preference, sharedPreferences.getString(key, ""));
+
         }
     }
 }

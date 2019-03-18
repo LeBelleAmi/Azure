@@ -10,8 +10,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.lebelle.azure.data.AppPrefs;
-
 import java.util.Date;
 
 public class DetailsActivity extends AppCompatActivity {
@@ -26,16 +24,16 @@ public class DetailsActivity extends AppCompatActivity {
         Typeface weatherFont = Typeface.createFromAsset(getAssets(),"font/weather.ttf");
 
         //textviews declaration
-        temp1 = (TextView) findViewById(R.id.weather_temp2);
-        temp2 = (TextView) findViewById(R.id.weather_temp3);
-        humidity_text = (TextView) findViewById(R.id.humidity_text);
-        precip_text = (TextView) findViewById(R.id.precipitation_text);
-        windSpeed_text = (TextView) findViewById(R.id.wind_speed_text);
-        windDirection_text = (TextView) findViewById(R.id.wind_direction_text);
-        pressure_text = (TextView) findViewById(R.id.pressure_text);
-        summary_text = (TextView) findViewById(R.id.weather_text2);
-        dateView = (TextView) findViewById(R.id.date_view);
-        iconImage = (TextView) findViewById(R.id.weather_image2);
+        temp1 = findViewById(R.id.weather_temp2);
+        temp2 = findViewById(R.id.weather_temp3);
+        humidity_text = findViewById(R.id.humidity_text);
+        precip_text = findViewById(R.id.precipitation_text);
+        windSpeed_text = findViewById(R.id.wind_speed_text);
+        windDirection_text = findViewById(R.id.wind_direction_text);
+        pressure_text = findViewById(R.id.pressure_text);
+        summary_text = findViewById(R.id.weather_text2);
+        dateView = findViewById(R.id.date_view);
+        iconImage = findViewById(R.id.weather_image2);
         iconImage.setTypeface(weatherFont);
 
         //get items from the adapter intent and set in views
@@ -70,7 +68,7 @@ public class DetailsActivity extends AppCompatActivity {
         long sunsett = data.getLong(sunset);
 
         //setup toolbar
-        Toolbar toolbar1 = (Toolbar) findViewById(R.id.toolbar1);
+        Toolbar toolbar1 = findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar1);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -79,7 +77,7 @@ public class DetailsActivity extends AppCompatActivity {
         temp1.setText(Utils.formatTemperature(getApplicationContext(), highTemp));
         temp2.setText(Utils.formatTemperature(getApplicationContext(), lowTemp));
         //humidity_text.setText(getString(R.string.format_percent, humid));
-        humidity_text.setText(String.valueOf(humid) + "%");
+        humidity_text.setText(String.valueOf(humid * 100) + "%");
         pressure_text.setText(Utils.getFormattedPressure(getApplicationContext(), pressre));
         windSpeed_text.setText(Utils.getFormattedWind(getApplicationContext(), windSd));
         precip_text.setText(String.valueOf(precip) + "%");

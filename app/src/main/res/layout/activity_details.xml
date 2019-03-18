@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="#FFF"
+    android:background="@drawable/day_gradient"
     tools:context="com.lebelle.azure.DetailsActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:background="#000"
         app:elevation="8dp">
 
         <android.support.v7.widget.Toolbar
@@ -52,7 +51,7 @@
             android:layout_alignParentEnd="true"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:textSize="100sp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             tools:text="@string/weather_sunny" />
 
         <TextView
@@ -63,7 +62,7 @@
             android:layout_marginBottom="10dp"
             android:gravity="end"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textStyle="bold"
             android:layout_below="@id/weather_image2"
             tools:text="Clear throughout the day" />
@@ -77,7 +76,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginStart="16dp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="50sp"
             android:drawableLeft="@drawable/ttemperature"
             android:drawableStart="@drawable/ttemperature"
@@ -94,7 +93,7 @@
             android:layout_marginLeft="45dp"
             android:layout_marginStart="45dp"
             android:layout_marginTop="8dp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="25sp"
             tools:text="32&#176;C" />
 
@@ -108,7 +107,7 @@
             android:layout_margin="5dp"
             android:gravity="start"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:text="@string/weather_indices_for_the_day" />
 
         <TextView
@@ -122,7 +121,7 @@
             android:drawableStart="@drawable/weatherglass_barometer"
             android:drawablePadding="5dp"
             android:layout_margin="8dp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="18sp" />
 
         <TextView
@@ -134,7 +133,7 @@
             android:layout_alignLeft="@+id/precipitation_text"
             android:layout_alignStart="@+id/precipitation_text"
             tools:text="@string/Pressure_sample"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="18sp" />
 
 
@@ -149,7 +148,7 @@
             android:drawableStart="@drawable/precip_icon"
             android:drawablePadding="5dp"
             android:layout_margin="8dp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="18sp" />
 
         <TextView
@@ -160,7 +159,7 @@
             android:layout_alignBottom="@+id/precipitation"
             android:layout_alignLeft="@+id/wind_speed_text"
             android:layout_alignStart="@+id/wind_speed_text"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="18sp"
             tools:text="@string/Precip_sample" />
 
@@ -176,7 +175,7 @@
             android:drawableStart="@drawable/drop"
             android:drawablePadding="5dp"
             android:layout_margin="8dp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="18sp" />
 
         <TextView
@@ -187,7 +186,7 @@
             android:layout_alignBottom="@+id/humidity"
             android:layout_centerHorizontal="true"
             tools:text="@string/Precip_sample"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="18sp" />
 
 
@@ -203,7 +202,7 @@
             android:drawableStart="@drawable/wind_rose"
             android:drawablePadding="5dp"
             android:layout_margin="8dp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="18sp" />
 
         <TextView
@@ -215,7 +214,7 @@
             android:layout_toEndOf="@+id/wind_direction"
             android:layout_toRightOf="@+id/wind_direction"
             tools:text="@string/wind_speed_sample"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="18sp" />
 
         <TextView
@@ -229,7 +228,7 @@
             android:drawableStart="@drawable/wind"
             android:drawablePadding="5dp"
             android:layout_margin="8dp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="18sp" />
 
         <TextView
@@ -241,7 +240,7 @@
             android:layout_toEndOf="@+id/humidity_text"
             android:layout_toRightOf="@+id/humidity_text"
             tools:text="@string/wind_speed_sample"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="18sp" />
 
 

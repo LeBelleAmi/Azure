@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
@@ -37,8 +38,6 @@ import com.lebelle.azure.api.Service;
 import com.lebelle.azure.classes.Currently;
 import com.lebelle.azure.classes.Datum__;
 import com.lebelle.azure.classes.WeatherData;
-import com.lebelle.azure.classes.WeatherLocation;
-import com.lebelle.azure.data.AppPrefs;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -69,9 +68,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     int year_x, month_x, day_x;
     static final int DIALOG_ID = 0;
 
-    //default coords
-    //double currentLatitude = location.getLatitude();
-//double currentLongitude = location.getLongitude();
+    //default coordinates
     final double latitude = 5.5544;
     final double longitude = 5.7932;
 
@@ -83,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         setContentView(R.layout.activity_main);
         Typeface weatherFont = Typeface.createFromAsset(getAssets(),"font/weather.ttf");
 
+
         dailyList = new ArrayList<>();
 
         final Calendar calendar = Calendar.getInstance();
@@ -91,25 +89,25 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         day_x = calendar.get(Calendar.DAY_OF_MONTH);
 
         //textviews declaration
-        iconView = (TextView) findViewById(R.id.weather_image);
-        tempView = (TextView) findViewById(R.id.weather_temp);
-        timeView = (TextView) findViewById(R.id.weather_time);
-        dateView = (TextView) findViewById(R.id.weather_date);
-        summaryView = (TextView) findViewById(R.id.weather_text);
-        pressureView = (TextView) findViewById(R.id.pressure_number);
-        windView = (TextView) findViewById(R.id.wind_speed_number);
-        precipView = (TextView) findViewById(R.id.precip_type_number);
-        humidityView = (TextView) findViewById(R.id.humidity_number);
-        appTempView = (TextView) findViewById(R.id.temp_number);
-        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.main_container);
+        iconView =  findViewById(R.id.weather_image);
+        tempView =  findViewById(R.id.weather_temp);
+        timeView =  findViewById(R.id.weather_time);
+        dateView =  findViewById(R.id.weather_date);
+        summaryView =  findViewById(R.id.weather_text);
+        pressureView =  findViewById(R.id.pressure_number);
+        windView = findViewById(R.id.wind_speed_number);
+        precipView =  findViewById(R.id.precip_type_number);
+        humidityView = findViewById(R.id.humidity_number);
+        appTempView = findViewById(R.id.temp_number);
+        coordinatorLayout = findViewById(R.id.main_container);
         locationView2 = findViewById(R.id.location1);
 
         //weathericons
-        icon1 = (TextView) findViewById(R.id.icon1);
-        icon2 = (TextView) findViewById(R.id.icon2);
-        icon3 = (TextView) findViewById(R.id.icon3);
-        icon4 = (TextView) findViewById(R.id.icon4);
-        icon5 = (TextView) findViewById(R.id.icon5);
+        icon1 =  findViewById(R.id.icon1);
+        icon2 =  findViewById(R.id.icon2);
+        icon3 = findViewById(R.id.icon3);
+        icon4 = findViewById(R.id.icon4);
+        icon5 = findViewById(R.id.icon5);
 
 
         //icon fonts
@@ -121,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         icon5.setTypeface(weatherFont);
 
         // Find the toolbar view inside the activity layout
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         // Sets the Toolbar to act as the ActionBar for this Activity window.
         // Make sure the toolbar exists in the activity and is not null
         setSupportActionBar(toolbar);
@@ -129,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView)
+        BottomNavigationView bottomNavigationView =
                 findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(
@@ -159,6 +157,19 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
          }
 
+
+    public void initViews() {
+        // set up recycler view
+        recyclerView = findViewById(R.id.list_view);
+        recyclerView.setHasFixedSize(true);
+        // use a linear layout manager
+        llm = new LinearLayoutManager(getApplicationContext());
+        llm.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerView.smoothScrollToPosition(0);
+        recyclerView.setLayoutManager(llm);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+    }
+
     private void loadWeatherDATA() {
         try {
             pd = new ProgressDialog(this);
@@ -181,7 +192,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                         recyclerView.smoothScrollToPosition(0);
                         recyclerView.setAdapter(mAdapter);
                         mAdapter.notifyDataSetChanged();
-
                         currentData = weatherData.getCurrently();
                         showWeatherInfo();
                     }
@@ -204,7 +214,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                             loadWeatherDATA();
                         }
                     });
-                    snackbar.setActionTextColor(Color.YELLOW);
+                    snackbar.setActionTextColor(Color.WHITE);
+                    View snackbarView = snackbar.getView();
+                    snackbarView.setBackgroundColor(getResources().getColor(R.color.colorAccent));
                     snackbar.show();
                 }
             });
@@ -229,7 +241,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     loadWeatherDATA();
                 }
             });
-            snackbar.setActionTextColor(Color.YELLOW);
+            snackbar.setActionTextColor(Color.WHITE);
+
+            View snackbarView = snackbar.getView();
+            snackbarView.setBackgroundColor(getResources().getColor(R.color.colorAccent));
             snackbar.show();
         }else {
             loadWeatherDATA();
@@ -269,19 +284,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
 
 
-    public void initViews() {
-        // set up recycler view
-        recyclerView = (RecyclerView) findViewById(R.id.list_view);
-        recyclerView.setHasFixedSize(true);
-        // use a linear layout manager
-        llm = new LinearLayoutManager(getApplicationContext());
-        llm.setOrientation(LinearLayoutManager.HORIZONTAL);
-        recyclerView.smoothScrollToPosition(0);
-        recyclerView.setLayoutManager(llm);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-    }
-
-
     /*
     *Display developer info in textviews
     *
@@ -310,7 +312,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         //precipView.setText(String.format(R.string.format_percent, precip));
         precipView.setText(String.valueOf(precip) + "%");
         pressureView.setText(Utils.getFormattedPressure(getApplicationContext(), pressuer));
-        humidityView.setText(String.valueOf(humid) + "%");
+        humidityView.setText(String.valueOf(humid * 100) + "%");
         //humidityView.setText(String.format(getString(R.string.format_percent), humid));
         //humidityView.setText(String.format("%.0f%%", humid * 100));
         windView.setText(Utils.getFormattedWind(getApplicationContext(), wind));
@@ -321,6 +323,20 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         iconView.setText(Utils.getIconId(currentData.getIcon(),
                 weatherData.getDaily().getData().get(0).getSunriseTime(),
                 weatherData.getDaily().getData().get(0).getSunsetTime()));
+
+
+        //change app background according to sunrise and sunset
+        CoordinatorLayout coordinatorLayout = findViewById(R.id.main_container);
+        long currentTime = new Date().getTime();
+        double sunrise = weatherData.getDaily().getData().get(0).getSunriseTime();
+        double sunset = weatherData.getDaily().getData().get(0).getSunsetTime();
+        if(currentTime>=sunrise && currentTime<sunset) {
+            Drawable drawable = getResources().getDrawable(R.drawable.kites_day);
+            coordinatorLayout.setBackgroundDrawable(drawable);
+        }else {
+            Drawable drawable = getResources().getDrawable(R.drawable.kites_night);
+            coordinatorLayout.setBackgroundDrawable(drawable);
+        }
 
     }
 
@@ -388,10 +404,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
 
     private void openMap() {
-        String addressString = ("Warri");
+        String addressString = "Warri";
         Uri.Builder builder = new Uri.Builder();
         builder.scheme("geo")
-                .path("0,0")
+                .path("5.5544,5.7932?=")
                 .query(addressString);
         Uri addressUri = builder.build();
         Intent intent = new Intent(Intent.ACTION_VIEW);

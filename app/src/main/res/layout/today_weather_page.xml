@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
-    android:background="@color/colorPrimaryDark"
+    android:layout_marginTop="?attr/actionBarSize"
     android:fillViewport="true">
 
 <LinearLayout
@@ -20,13 +20,11 @@
 
         <TextView
             android:id="@+id/weather_image"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginTop="24dp"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="18dp"
             android:layout_marginStart="8dp"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:textColor="@android:color/white"
             android:textSize="120sp"
             tools:text="@string/weather_sunny" />
@@ -35,10 +33,8 @@
             android:id="@+id/weather_temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="16dp"
             android:layout_marginStart="35dp"
             android:textColor="@android:color/white"
@@ -70,8 +66,10 @@
             android:layout_weight="1.2"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:drawableTop="@drawable/ic_calender"
+            android:drawableLeft="@drawable/ic_calender"
+            android:drawableStart="@drawable/ic_calender"
             android:gravity="center"
+            android:layout_marginLeft="8dp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             tools:text="Today, May 18 2017"/>
@@ -82,23 +80,12 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_clock"
+            android:drawableLeft="@drawable/ic_clock"
+            android:drawableStart="@drawable/ic_clock"
             android:gravity="center"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             tools:text="12:00AM" />
-<!--
-        <TextView
-            android:id="@+id/location"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:drawableTop="@drawable/ic_location"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            tools:text="Warri, Nigeria" />-->
 
     </LinearLayout>
 
@@ -107,7 +94,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:layout_margin="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
         android:gravity="start"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
         android:textColor="@android:color/white"
@@ -117,7 +105,8 @@
     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/card"
         style="@style/CardTwo"
-        android:layout_margin="5dp">
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -147,7 +136,7 @@
                         android:text="@string/weather_barometer"
                         android:textColor="@android:color/white"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                        android:textSize="20sp"/>
+                        android:textSize="18sp"/>
 
                     <TextView
                         android:id="@+id/pressure_number"
@@ -163,9 +152,9 @@
 
                 <TextView
                     android:id="@+id/repo_text"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
+                    android:gravity="center"
                     android:text="@string/Pressure"
                     android:textColor="@android:color/white"
                     android:textSize="10sp" />
@@ -195,7 +184,7 @@
                         android:layout_gravity="center"
                         android:text="@string/weather_speed"
                         android:textColor="@android:color/white"
-                        android:textSize="20sp"/>
+                        android:textSize="18sp"/>
 
                     <TextView
                         android:id="@+id/wind_speed_number"
@@ -243,7 +232,7 @@
                         android:textAlignment="center"
                         android:text="@string/weather_thermometer"
                         android:textColor="@android:color/white"
-                        android:textSize="20sp"/>
+                        android:textSize="18sp"/>
 
                     <TextView
                         android:id="@+id/temp_number"
@@ -291,7 +280,7 @@
                         android:textAlignment="center"
                         android:text="@string/weather_humidity"
                         android:textColor="@android:color/white"
-                        android:textSize="20sp"/>
+                        android:textSize="18sp"/>
 
                     <TextView
                         android:id="@+id/humidity_number"
@@ -306,9 +295,9 @@
 
                 <TextView
                     android:id="@+id/following_text"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
+                    android:gravity="center"
                     android:text="@string/humidity"
                     android:textColor="@android:color/white"
                     android:textSize="10sp" />
@@ -338,7 +327,7 @@
                         android:textAlignment="center"
                         android:text="@string/weather_umbrella"
                         android:textColor="@android:color/white"
-                        android:textSize="20sp"/>
+                        android:textSize="18sp"/>
 
                     <TextView
                         android:id="@+id/precip_type_number"
@@ -371,12 +360,22 @@
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
         android:textStyle="bold"
         android:textColor="@android:color/white"
-        android:layout_margin="5dp"/>
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="5dp"/>
 
-    <include
-        layout="@layout/activity_main_rv">
-    </include>
-
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:scrollbarSize="3dp"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbars="horizontal"
+        tools:listitem="@layout/list_item"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="60dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"/>
     </LinearLayout>
 
 </ScrollView>

@@ -7,4 +7,5 @@
     <color name="colorTransparent">#40FFFFFF</color>
     <color name="colorPrimary1">#000</color>
     <color name="colorPrimaryDark1">#000</color>
+    <color name="colorBackground">#8000</color>
 </resources>

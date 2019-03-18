@@ -12,7 +12,7 @@ import retrofit2.http.Path;
  */
 
 public interface Service {
-//    @GET(Url.API_KEY + Url.LATITUDE + Url.LONGITUDE)
+   //@GET(Url.API_KEY + Url.LATITUDE + Url.LONGITUDE)
     @GET(Url.API_KEY + "{latitude},{longitude}")
     Call<WeatherData> getCurrentWeatherData(
             @Path("latitude") Double latitude,

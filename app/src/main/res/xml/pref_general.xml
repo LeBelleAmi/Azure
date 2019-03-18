@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    app:iconSpaceReserved="false">
 <PreferenceCategory
     android:title="@string/general">
     <EditTextPreference
@@ -9,45 +11,51 @@
         android:inputType="text"
         android:key="@string/location_1"
         android:singleLine="true"
-        android:title="@string/location"/>
+        android:title="@string/location"
+        app:iconSpaceReserved="false"/>
 
     <ListPreference
         android:defaultValue="@string/imperial"
         android:entries="@array/pref_units"
         android:entryValues="@array/pref_values"
         android:key="@string/units"
-        android:title="@string/temp_units"/>
+        android:title="@string/temp_units"
+        app:iconSpaceReserved="false"/>
 
     <ListPreference
         android:defaultValue="@string/never"
         android:entries="@array/pref_update_freq"
         android:entryValues="@array/pref_freq_values"
         android:key="@string/updates"
-        android:title="@string/update"/>
-    <Preference android:title="@string/pref_system_sync">
-        <intent android:action="android.settings.SYNC_SETTINGS"/>
-    </Preference>
+        android:title="@string/update"
+        app:iconSpaceReserved="false"/>
+
 
     <android.support.v7.preference.SwitchPreferenceCompat
         android:defaultValue="@bools/switch_default"
         android:key="@string/notify"
         android:summaryOff="@string/weather_summary"
         android:summaryOn="@string/weather_summary"
-        android:title="@string/weather_notifications"/>
+        android:title="@string/weather_notifications"
+        app:iconSpaceReserved="false"/>
+
 </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/about_a">
         <Preference
             android:selectable="false"
-            android:summary="@string/about"/>
+            android:summary="@string/about"
+            app:iconSpaceReserved="false"/>
         <Preference
             android:summary="@string/version"
-            android:title="@string/tittle_version"/>
+            android:title="@string/tittle_version"
+            app:iconSpaceReserved="false"/>
         <Preference
             android:title="@string/powered"
-            android:summary="@string/darksky">
+            android:summary="@string/darksky"
+            app:iconSpaceReserved="false">
             <intent android:action="android.intent.action.VIEW"
-                android:data="@string/darksky_link"/>
+                android:data="@string/darksky_link" />
         </Preference>
     </PreferenceCategory>
 

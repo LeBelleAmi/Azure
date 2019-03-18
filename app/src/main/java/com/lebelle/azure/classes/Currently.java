@@ -61,12 +61,12 @@ public class Currently {
     private Integer uvIndex;
     @SerializedName("visibility")
     @Expose
-    private Integer visibility;
+    private Double visibility;
     @SerializedName("ozone")
     @Expose
     private Double ozone;
 
-    public Currently(Integer time, String summary, String icon, Integer nearestStormDistance, Integer nearestStormBearing, Double precipIntensity, Double precipProbability, Double temperature, Double apparentTemperature, Double dewPoint, Double humidity, Double pressure, Double windSpeed, Double windGust, Integer windBearing, Double cloudCover, Integer uvIndex, Integer visibility, Double ozone) {
+    public Currently(Integer time, String summary, String icon, Integer nearestStormDistance, Integer nearestStormBearing, Double precipIntensity, Double precipProbability, Double temperature, Double apparentTemperature, Double dewPoint, Double humidity, Double pressure, Double windSpeed, Double windGust, Integer windBearing, Double cloudCover, Integer uvIndex, Double visibility, Double ozone) {
         this.time = time;
         this.summary = summary;
         this.icon = icon;
@@ -226,11 +226,11 @@ public class Currently {
         this.uvIndex = uvIndex;
     }
 
-    public Integer getVisibility() {
+    public Double getVisibility() {
         return visibility;
     }
 
-    public void setVisibility(Integer visibility) {
+    public void setVisibility(Double visibility) {
         this.visibility = visibility;
     }
 
