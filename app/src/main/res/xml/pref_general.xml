@@ -31,8 +31,8 @@
         app:iconSpaceReserved="false"/>
 
 
-    <android.support.v7.preference.SwitchPreferenceCompat
-        android:defaultValue="@bools/switch_default"
+    <SwitchPreference
+        android:defaultValue="true"
         android:key="@string/notify"
         android:summaryOff="@string/weather_summary"
         android:summaryOn="@string/weather_summary"

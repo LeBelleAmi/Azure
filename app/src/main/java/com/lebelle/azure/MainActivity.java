@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     static final int DIALOG_ID = 0;
 
     //default coordinates
-    final double latitude = 5.5544;
+    final double latitude =  5.5544;
     final double longitude = 5.7932;
 
     private static boolean PREFERENCES_HAS_CHANGED = false;
@@ -330,7 +330,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         long currentTime = new Date().getTime();
         double sunrise = weatherData.getDaily().getData().get(0).getSunriseTime();
         double sunset = weatherData.getDaily().getData().get(0).getSunsetTime();
-        if(currentTime>=sunrise && currentTime<sunset) {
+        if(currentTime>=sunrise || currentTime<sunset) {
             Drawable drawable = getResources().getDrawable(R.drawable.kites_day);
             coordinatorLayout.setBackgroundDrawable(drawable);
         }else {
