@@ -4,7 +4,7 @@
     <string name="menu_item2">Cities</string>
     <string name="menu_item3">Settings</string>
     <string name="menu_item4">Calender</string>
-    <string name="empty_state">No weather data found!</string>
+    <string name="empty_state">Azure is loading</string>
     <string name="number_sample">12</string>
     <string name="repos">12</string>
     <string name="weather_code">12</string>
@@ -55,17 +55,21 @@
     <string name="notify">notify_key</string>
     <string name="about"><![CDATA[This is a weather update app designed for research purposes for the Andela, Google, & Udacity Android Community Learning Intermediate Program.]]></string>
     <string name="about_a">About</string>
-    <string name="version">App Version 1.0</string>
+    <string name="version">App Version 2.0</string>
     <string name="tittle_version">Version</string>
     <string name="powered">Powered By</string>
-    <string name="darksky_link">https://darksky.net/poweredby/</string>
-    <string name="darksky">DarkSky</string>
     <string name="switch_default">true</string>
     <string name="api_key">Your API Key</string>
 
-    <!-- Temperature format -->
-    <string name="format_temperature">
-        <xliff:g id="temp">%1.0f</xliff:g>\u00B0
+
+    <!-- Temperature format in Celsius [CHAR LIMIT=5] -->
+    <string name="format_temperature_celsius">
+        <xliff:g id="temp">%1.0f</xliff:g>\u00B0C
+    </string>
+
+    <!-- Temperature format in Fahrenheit [CHAR LIMIT=5] -->
+    <string name="format_temperature_fahrenheit">
+        <xliff:g id="temp">%1.0f</xliff:g>\u00B0F
     </string>
 
     <string name="format_wind_kmh">
@@ -132,7 +136,16 @@
     <string name="longitude">longitude</string>
     <string name="weeklyForecast">Weekly Forecast</string>
     <string name="weather_indices_for_the_day">Weather indices for the day</string>
-    <string name="location_unicode"></string>
+    <string name="location_unicode">&#xf078;</string>
     <string name="cities">Cities</string>
+    <string name="openweathermap">Open Weather Map</string>
+    <string name="openwaether_link"> https://openweathermap.org/api</string>
+
+    <!-- Key name for storing location in SharedPreferences [CHAR LIMIT=NONE] -->
+    <string name="pref_location_key" translatable="false">location</string>
+
+    <!-- Default postal code for location preference [CHAR LIMIT=NONE] -->
+    <string name="pref_location_default" translatable="false">warri</string>
+
 
 </resources>

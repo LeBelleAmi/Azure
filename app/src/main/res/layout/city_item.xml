@@ -11,7 +11,7 @@
         android:paddingStart="16dp">
 
         <TextView
-            android:id="@+id/magnitude"
+            android:id="@+id/weatherIcon"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_gravity="center_vertical"
@@ -43,17 +43,28 @@
 
 
             <TextView
-                android:id="@+id/secondary_location"
+                android:id="@+id/message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:fontFamily="sans-serif-medium"
                 android:maxLines="1"
-                android:textAllCaps="true"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="12sp"
-                tools:text="Brooklyn" />
+                tools:text="Clear throughout the day" />
 
         </LinearLayout>
+
+    <TextView
+        android:id="@+id/tempNumber"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center_vertical"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="32&#176;C" />
 
         </LinearLayout>

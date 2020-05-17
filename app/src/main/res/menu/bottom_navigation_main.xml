@@ -7,11 +7,16 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         android:title="@string/menu_item1"
         app:showAsAction="ifRoom"
         />
-
     <item android:id="@+id/cities"
         android:enabled="true"
         android:icon="@drawable/ic_cities"
         android:title="@string/menu_item2"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/share"
+        android:enabled="true"
+        android:icon="@drawable/ic_share"
+        android:title="@string/menu_item5"
         app:showAsAction="ifRoom" />
 
     <item android:id="@+id/settings"

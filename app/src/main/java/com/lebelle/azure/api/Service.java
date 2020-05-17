@@ -1,21 +1,24 @@
 package com.lebelle.azure.api;
 
-import com.lebelle.azure.classes.WeatherData;
+import com.lebelle.azure.classes.RootData;
 import com.lebelle.azure.url.Url;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Created by HP on 20-Nov-17.
  */
 
 public interface Service {
-   //@GET(Url.API_KEY + Url.LATITUDE + Url.LONGITUDE)
-    @GET(Url.API_KEY + "{latitude},{longitude}")
-    Call<WeatherData> getCurrentWeatherData(
-            @Path("latitude") Double latitude,
-            @Path("longitude") Double longitude
-    );
+   @GET(Url.LOCATION)
+    Call<RootData> getCurrentWeatherData(@Query("q") String location,
+                                         @Query("units") String unit,
+                                         @Query("cnt") int count,
+                                         @Query("lang") String language,
+                                         @Query("appid") String api);
+
+   /* @GET(Url.LOCATION + "lagos" + Url.UNITS + Url.COUNT + Url.LANG + Url.API_KEY)
+    Call<RootData> getCurrentWeatherData();*/
 }

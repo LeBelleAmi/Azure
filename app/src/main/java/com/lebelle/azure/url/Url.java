@@ -7,12 +7,13 @@ package com.lebelle.azure.url;
 public class Url {
     //constants that make up the url
 /*
-    time forecast api
-    https://api.darksky.net/forecast/[key]/[latitude],[longitude],[time]
+    https://api.openweathermap.org/data/2.5/forecast/daily?q=warri&units=metric&cnt=7&lang=en&appid=c0c4a4b4047b97ebc5948ac9c48c0559#
 */
-    public static final String BASE_URL = "https://api.darksky.net/forecast/";
-    public static final String API_KEY = "a8c1e7c2f9d097c098e3557df7917b82" + "/";
-    public static final String LATITUDE = "5.5544" + ",";
-    public static final String LONGITUDE = "5.7932";
-
+    public static final String BASE_URL = "https://api.openweathermap.org/";
+    public static final String LOCATION = "data/2.5/forecast/daily";
+    public static final String CITY = "warri";
+    public static final String API_KEY = "410463b3935acea56c8171825dbb4440";
+    public static final String UNITS = "metric";
+    public static final int COUNT = 7;
+    public static final String LANG = "en";
 }

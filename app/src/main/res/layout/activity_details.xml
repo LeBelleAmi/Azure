@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@drawable/day_gradient"
-    tools:context="com.lebelle.azure.DetailsActivity">
+    tools:context="com.lebelle.azure.controllers.DetailsActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -43,24 +43,27 @@
         android:orientation="horizontal"
         android:padding="16dp"
         android:layout_marginTop="80dp">
+
         <TextView
             android:id="@+id/weather_image2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="90dp"
+            android:layout_marginRight="90dp"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            android:textSize="100sp"
             android:textColor="@android:color/white"
+            android:textSize="100sp"
             tools:text="@string/weather_sunny" />
 
         <TextView
             android:id="@+id/weather_text2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
+            android:layout_gravity="start"
             android:layout_marginBottom="10dp"
-            android:gravity="end"
+            android:gravity="start"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:textColor="@android:color/white"
             android:textStyle="bold"

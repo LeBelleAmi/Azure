@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".controllers.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,28 +24,29 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DetailsActivity"
+            android:name=".controllers.DetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Base.AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".controllers.MainActivity" />
         </activity>
         <activity
-            android:name=".SettingsActivity"
+            android:name=".controllers.SettingsActivity"
             android:label="@string/settings_name"
             android:screenOrientation="portrait"
-            android:theme="@style/Base.AppTheme2">
+            android:theme="@style/Base.AppTheme2"
+            android:parentActivityName=".controllers.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".controllers.MainActivity" />
         </activity>
-        <activity android:name=".CitiesActivity"
+        <activity android:name=".controllers.CitiesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Base.AppTheme3">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".controllers.MainActivity" />
         </activity>
     </application>
 
