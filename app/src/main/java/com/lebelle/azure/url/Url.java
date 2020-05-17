@@ -12,7 +12,7 @@ public class Url {
     public static final String BASE_URL = "https://api.openweathermap.org/";
     public static final String LOCATION = "data/2.5/forecast/daily";
     public static final String CITY = "warri";
-    public static final String API_KEY = "410463b3935acea56c8171825dbb4440";
+    public static final String API_KEY = "YOUR_KEY_HERE";
     public static final String UNITS = "metric";
     public static final int COUNT = 7;
     public static final String LANG = "en";
